@@ -3,11 +3,12 @@ Group-Id: org.jenkins-ci.plugins
 Short-Name: scrumwise
 Long-Name: scrumwise
 Url: http://jenkins-ci.org/plugin/scrumwise/
-Plugin-Version: 1.0-SNAPSHOT (private-09/13/2014 14:34-rob)
+Plugin-Version: 1.0-SNAPSHOT (private-09/16/2014 16:31-rob)
 Hudson-Version: 1.532.3
 Jenkins-Version: 1.532.3
 Plugin-Dependencies: ui-samples-plugin:1.532.3
 Plugin-Developers: 
-Libraries: /home/rob/dev/scrumwise/target/classes
+Libraries: /home/rob/dev/scrumwise/target/classes,/home/rob/.m2/reposi
+ tory/net/java/dev/jna/jna/3.2.2/jna-3.2.2.jar
 Resource-Path: /home/rob/dev/scrumwise/src/main/webapp
 

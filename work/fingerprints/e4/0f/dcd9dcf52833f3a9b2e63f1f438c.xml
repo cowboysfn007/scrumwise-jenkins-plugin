@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2014-09-28 00:40:52.679 UTC</timestamp>
+  <md5sum>e40fdcd9dcf52833f3a9b2e63f1f438c</md5sum>
+  <fileName>jfree:jfreechart-1.0.9.jar</fileName>
+  <usages>
+    <entry>
+      <string>Test Scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+    <entry>
+      <string>Test Scrumwise/org.jenkins-ci.plugins:scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

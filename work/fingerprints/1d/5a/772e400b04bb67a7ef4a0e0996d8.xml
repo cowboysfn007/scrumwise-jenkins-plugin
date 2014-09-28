@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2014-09-28 00:40:52.807 UTC</timestamp>
+  <md5sum>1d5a772e400b04bb67a7ef4a0e0996d8</md5sum>
+  <fileName>com.google.code.findbugs:jsr305-1.3.9.jar</fileName>
+  <usages>
+    <entry>
+      <string>Test Scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+    <entry>
+      <string>Test Scrumwise/org.jenkins-ci.plugins:scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2014-09-28 00:40:52.803 UTC</timestamp>
+  <md5sum>b45be74134796c89db7126083129532f</md5sum>
+  <fileName>commons-beanutils:commons-beanutils-1.8.3.jar</fileName>
+  <usages>
+    <entry>
+      <string>Test Scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+    <entry>
+      <string>Test Scrumwise/org.jenkins-ci.plugins:scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

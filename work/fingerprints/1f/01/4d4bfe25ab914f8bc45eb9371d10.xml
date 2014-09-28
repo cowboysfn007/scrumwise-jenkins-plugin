@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2014-09-28 00:40:52.622 UTC</timestamp>
+  <md5sum>1f014d4bfe25ab914f8bc45eb9371d10</md5sum>
+  <fileName>org.jvnet.hudson:jtidy-4aug2000r7-dev-hudson-1.jar</fileName>
+  <usages>
+    <entry>
+      <string>Test Scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+    <entry>
+      <string>Test Scrumwise/org.jenkins-ci.plugins:scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

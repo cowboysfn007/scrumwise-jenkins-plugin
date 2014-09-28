@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2014-09-28 00:40:52.590 UTC</timestamp>
+  <md5sum>ecc36a63c16bb2195198d24f2b803804</md5sum>
+  <fileName>javax.servlet:jstl-1.1.0.jar</fileName>
+  <usages>
+    <entry>
+      <string>Test Scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+    <entry>
+      <string>Test Scrumwise/org.jenkins-ci.plugins:scrumwise</string>
+      <ranges>1</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

@@ -12,12 +12,22 @@ public class HelloWorldBuilderTest {
 
     @Before
     public void setUp(){
-        helloWorldBuilder = new HelloWorldBuilder("Rob");
+        helloWorldBuilder = new HelloWorldBuilder("test@test.com", "key", "projectID");
     }
 
     @Test
-    public void testGetName(){
-        assertEquals("Rob", helloWorldBuilder.getName());
+    public void testGetEmail(){
+        assertEquals("test@test.com", helloWorldBuilder.getEmail());
+    }
+
+    @Test
+    public void testGetKey(){
+        assertEquals("key", helloWorldBuilder.getKey());
+    }
+
+    @Test
+    public void testGetProjectID(){
+        assertEquals("projectID", helloWorldBuilder.getProjectID());
     }
 
 }

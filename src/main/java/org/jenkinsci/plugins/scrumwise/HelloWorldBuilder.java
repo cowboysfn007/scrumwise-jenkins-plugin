@@ -34,20 +34,27 @@ import java.io.IOException;
  */
 public class HelloWorldBuilder extends Builder {
 
-    private final String name;
+
+    private final String email;
+    private final String key;
+    private final String projectID;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public HelloWorldBuilder(String name) {
-        this.name = name;
+    public HelloWorldBuilder(String email, String key, String projectID) {
+        this.email = email;
+        this.key = key;
+        this.projectID = projectID;
     }
 
     /**
      * We'll use this from the <tt>config.jelly</tt>.
      */
-    public String getName() {
-        return name;
-    }
+    public String getEmail() {return email;}
+
+    public String getKey() {return key;}
+
+    public String getProjectID() {return projectID;}
 
     @Override
     public boolean perform(AbstractBuild build, Launcher launcher, BuildListener listener) {
@@ -56,9 +63,9 @@ public class HelloWorldBuilder extends Builder {
 
         // This also shows how you can consult the global configuration of the builder
         if (getDescriptor().getUseFrench())
-            listener.getLogger().println("Bonjour, "+name+"!");
+            listener.getLogger().println("Bonjour, "+getEmail()+"!");
         else
-            listener.getLogger().println("Hello, "+name+"!");
+            listener.getLogger().println("Hello, "+getEmail()+"!");
         return true;
     }
 
@@ -112,7 +119,7 @@ public class HelloWorldBuilder extends Builder {
         public FormValidation doCheckEmail(@QueryParameter String value)
                 throws IOException, ServletException {
             if (value.length() == 0)
-                return FormValidation.error("Please set a name");
+                return FormValidation.error("Please set an e-mail address");
             if (value.length() < 4)
                 return FormValidation.warning("Isn't the name too short?");
             return FormValidation.ok();
@@ -122,9 +129,6 @@ public class HelloWorldBuilder extends Builder {
                 throws IOException, ServletException {
             if(value.length() == 0){
                 return FormValidation.error("Please enter a key");
-            }
-            if(value.length() != 7){
-                return FormValidation.error("Not a valid key");
             }
             return FormValidation.ok();
         }

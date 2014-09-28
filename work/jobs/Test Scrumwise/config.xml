@@ -53,11 +53,11 @@
   <buildWrappers/>
   <prebuilders/>
   <postbuilders>
-    <org.jenkinsci.plugins.scrumwise.HelloWorldBuilder plugin="scrumwise@1.0-SNAPSHOT">
+    <org.jenkinsci.plugins.scrumwise.ScrumwiseBuilder plugin="scrumwise@1.0-SNAPSHOT">
       <email>kgary@asu.edu</email>
       <key>7E08480FE81ADE3B819AB562CF053111046AC862B4E9447EFD4FCA8394F91876</key>
       <projectID>27628-0-5</projectID>
-    </org.jenkinsci.plugins.scrumwise.HelloWorldBuilder>
+    </org.jenkinsci.plugins.scrumwise.ScrumwiseBuilder>
   </postbuilders>
   <runPostStepsIfResult>
     <name>FAILURE</name>

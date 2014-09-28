@@ -21,7 +21,7 @@ import java.io.IOException;
  * <p>
  * When the user configures the project and enables this builder,
  * {@link DescriptorImpl#newInstance(StaplerRequest)} is invoked
- * and a new {@link HelloWorldBuilder} is created. The created
+ * and a new {@link ScrumwiseBuilder} is created. The created
  * instance is persisted to the project configuration XML by using
  * XStream, so this allows you to use instance fields (like {@link #name})
  * to remember the configuration.
@@ -32,7 +32,7 @@ import java.io.IOException;
  *
  * @author Kohsuke Kawaguchi
  */
-public class HelloWorldBuilder extends Builder {
+public class ScrumwiseBuilder extends Builder {
 
 
     private final String email;
@@ -41,7 +41,7 @@ public class HelloWorldBuilder extends Builder {
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public HelloWorldBuilder(String email, String key, String projectID) {
+    public ScrumwiseBuilder(String email, String key, String projectID) {
         this.email = email;
         this.key = key;
         this.projectID = projectID;
@@ -78,7 +78,7 @@ public class HelloWorldBuilder extends Builder {
     }
 
     /**
-     * Descriptor for {@link HelloWorldBuilder}. Used as a singleton.
+     * Descriptor for {@link ScrumwiseBuilder}. Used as a singleton.
      * The class is marked as public so that it can be accessed from views.
      *
      * <p>

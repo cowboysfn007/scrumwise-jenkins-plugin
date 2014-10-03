@@ -6,11 +6,11 @@
   <usages>
     <entry>
       <string>Test Scrumwise</string>
-      <ranges>1-2</ranges>
+      <ranges>1-19</ranges>
     </entry>
     <entry>
       <string>Test Scrumwise/org.jenkins-ci.plugins:scrumwise</string>
-      <ranges>1-2</ranges>
+      <ranges>1-19</ranges>
     </entry>
   </usages>
   <facets/>

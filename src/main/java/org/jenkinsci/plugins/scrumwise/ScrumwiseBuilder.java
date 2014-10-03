@@ -1,6 +1,7 @@
 package org.jenkinsci.plugins.scrumwise;
 import hudson.Launcher;
 import hudson.Extension;
+import hudson.remoting.Base64;
 import hudson.util.FormValidation;
 import hudson.model.AbstractBuild;
 import hudson.model.BuildListener;
@@ -12,8 +13,11 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.QueryParameter;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.ServletException;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
+import java.net.URLEncoder;
 
 /**
  * Sample {@link Builder}.
@@ -62,6 +66,35 @@ public class ScrumwiseBuilder extends Builder {
         // Since this is a dummy, we just say 'hello world' and call that a build.
 
         // This also shows how you can consult the global configuration of the builder
+
+        try{
+            String encodedProjectIDs = URLEncoder.encode(getProjectID(),"UTF-8");
+            String encodedProperties = URLEncoder.encode("Project.backlogItems,BacklogItem.tasks,Data.persons", "UTF-8");
+            String scrumwiseURL = "https://api.scrumwise.com/service/api/v1/getData?projectIDs=" + encodedProjectIDs + "&includeProperties=" + encodedProperties;
+            URL url = new URL(scrumwiseURL);
+            String encoding = Base64.encode((getEmail() + ":" + getKey()).getBytes());
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Authorization", "Basic " + encoding);
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+            wr.writeBytes("");
+            wr.flush();
+            wr.close();
+
+            InputStream content = connection.getInputStream();
+            BufferedReader in = new BufferedReader(new InputStreamReader(content));
+            String line;
+            while((line = in.readLine()) != null){
+                listener.getLogger().println(line);
+            }
+
+
+        }catch(Exception e){listener.getLogger().println(e.toString());}
+
+
+
         if (getDescriptor().getUseFrench())
             listener.getLogger().println("Bonjour, "+getEmail()+"!");
         else

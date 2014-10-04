@@ -2,6 +2,12 @@
 <maven2-moduleset plugin="maven-plugin@2.0">
   <actions/>
   <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>15</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.9.1">
@@ -56,7 +62,7 @@
     <org.jenkinsci.plugins.scrumwise.ScrumwiseBuilder plugin="scrumwise@1.0-SNAPSHOT">
       <email>kgary@asu.edu</email>
       <key>7E08480FE81ADE3B819AB562CF053111046AC862B4E9447EFD4FCA8394F91876</key>
-      <projectID>27628-0-5</projectID>
+      <projectID>27628-4580-7</projectID>
     </org.jenkinsci.plugins.scrumwise.ScrumwiseBuilder>
   </postbuilders>
   <runPostStepsIfResult>

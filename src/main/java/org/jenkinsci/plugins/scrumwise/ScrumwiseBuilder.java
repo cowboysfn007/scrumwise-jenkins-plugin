@@ -9,6 +9,7 @@ import hudson.model.AbstractProject;
 import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
 import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.QueryParameter;
@@ -69,7 +70,7 @@ public class ScrumwiseBuilder extends Builder {
 
         try{
             String encodedProjectIDs = URLEncoder.encode(getProjectID(),"UTF-8");
-            String encodedProperties = URLEncoder.encode("Project.backlogItems,BacklogItem.tasks,Data.persons", "UTF-8");
+            String encodedProperties = URLEncoder.encode("Project.backlogItems,Project.teams,Project.sprints,BacklogItem.tasks,Data.persons", "UTF-8");
             String scrumwiseURL = "https://api.scrumwise.com/service/api/v1/getData?projectIDs=" + encodedProjectIDs + "&includeProperties=" + encodedProperties;
             URL url = new URL(scrumwiseURL);
             String encoding = Base64.encode((getEmail() + ":" + getKey()).getBytes());
@@ -77,7 +78,6 @@ public class ScrumwiseBuilder extends Builder {
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Authorization", "Basic " + encoding);
             connection.setDoOutput(true);
-            connection.setDoInput(true);
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             wr.writeBytes("");
             wr.flush();
@@ -86,10 +86,18 @@ public class ScrumwiseBuilder extends Builder {
             InputStream content = connection.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(content));
             String line;
+            StringBuffer response = new StringBuffer();
             while((line = in.readLine()) != null){
+                response.append(line);
                 listener.getLogger().println(line);
             }
+            in.close();
 
+            JSONObject result = (JSONObject) JSONSerializer.toJSON(response.toString());
+            ScrumwiseConverter scrumwiseConverter = new ScrumwiseConverter();
+            ScrumwiseResults results = scrumwiseConverter.convert(result);
+
+            listener.getLogger().println(results.getCurrentSprint().getString("name"));
 
         }catch(Exception e){listener.getLogger().println(e.toString());}
 
